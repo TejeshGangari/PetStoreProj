@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
+import helpers.Status;
 
 
 public class NegativeFlow {
@@ -36,7 +37,7 @@ public class NegativeFlow {
     public void validResonseIsReceived() {
         List<Object> response = Arrays.asList(jsonArray.stream().toArray());
         //System.out.println(response.stream().filter(utils.predicate()).count());
-        Assert.assertTrue(response.stream().filter(utils.predicate()).count()!=0);
+        Assert.assertTrue(response.stream().filter(utils.predicate(Status.AVAILABLE.toString())).count()!=0);
     }
 
     private JSONArray getJSONArray() throws IOException, ParseException {

@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.reflect.TypeToken;
+import helpers.Status;
 import helpers.Utilities;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -49,6 +50,6 @@ public class MyStepdefs {
     @Then("Valid response is received")
     public void valid_respond_is_received() {
         List<Map<String,String>> responses = response.jsonPath().getList("$");
-        Assert.assertTrue(responses.stream().filter(utils.predicate()).count()!=0);
+        Assert.assertTrue(responses.stream().filter(utils.predicate(Status.AVAILABLE.toString())).count()!=0);
     }
 }
