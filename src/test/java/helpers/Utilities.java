@@ -9,7 +9,7 @@ public class Utilities {
             @Override
             public boolean test(Map<String, String> map) {
                 if(map.get("name")!=null){
-                    return (map.get("name").equals("doggie")&&map.get("status").equals("available"));
+                    return (map.get("name").equals("doggie")&&map.get("status").equals(status));
                 }
                 return false;
             }
